@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import NavBar from "../NavBar";
+import Categories from "./Categories";
 
 class Home extends Component {
   render() {
@@ -10,6 +11,7 @@ class Home extends Component {
     ) : (
       <div>
         <NavBar />
+        <Categories />
         <h1>Home</h1>
       </div>
     );
