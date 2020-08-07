@@ -1,0 +1,23 @@
+.profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #3c2c3e;
+  margin-top: 0px;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.profile img {
+  margin-top: 5rem;
+}
+
+.profile h1 {
+  margin-top: 2rem;
+  font-size: 35px;
+}
+
+.profile p {
+  margin-top: 2rem;
+  font-size: 30px;
+}

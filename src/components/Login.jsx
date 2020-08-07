@@ -147,9 +147,10 @@ class Login extends Component {
                   appId="2578350775811725"
                   fields="name,email,picture"
                   callback={this.responseFacebook}
+                  icon="fa-facebook-official"
+                  className="socbtn1"
                 />
               </center>
-
               {this.props.logdetails != null ? (
                 <div>
                   {this.props.logstatus === 200 ? (
@@ -184,7 +185,6 @@ class Login extends Component {
                 required
                 value={this.state.lpassword}
               />
-
               <button type="submit" className="submit-btn1">
                 Login
               </button>

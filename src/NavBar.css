@@ -1,0 +1,20 @@
+.wrapper {
+  background-color: #3c2c3e;
+  font-size: 30px;
+  font-weight: 700;
+  height: 50px;
+  padding: 20px 20px;
+  text-align: right;
+  text-decoration: none;
+}
+
+.wrapper a {
+  text-decoration: none;
+  padding: 15px;
+  color: #fff;
+  font-weight: lighter;
+}
+
+.wrapper a:hover {
+  color: blue;
+}
