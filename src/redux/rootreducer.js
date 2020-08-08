@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   loginState: loginReducer,
   registerState: registerReducer,
   foodState: foodReducer,
-  categoriesReducer: categoriesReducer,
+  categoriesState: categoriesReducer,
 });
 
 export default rootReducer;

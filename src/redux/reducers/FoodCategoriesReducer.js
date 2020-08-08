@@ -1,26 +1,15 @@
-import { LOADING, GET_CATEGORIES, ERROR } from "../actionname";
+import { GET_CATEGORIES} from "../actionname";
 
 const initalState = {
-  loading: true,
-  categories: [],
+  categories: null,
 };
 
 export const categoriesReducer = (state = initalState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case LOADING:
-      return {
-        categories: [...state.categories],
-      };
     case GET_CATEGORIES:
       return {
-        loading: false,
-        categories: [...state.categories, payload],
-      };
-    case ERROR:
-      return {
-        loading: true,
-        categories: [...state.categories, payload],
+        categories: payload,
       };
     default:
       return state;
