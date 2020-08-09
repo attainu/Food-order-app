@@ -12,7 +12,6 @@ class Home extends Component {
       <div>
         <NavBar />
         <Categories />
-        <h1>Home</h1>
       </div>
     );
   }

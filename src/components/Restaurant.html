@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Search Restaurant</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/bable">
+      var Restaurant = React.createClass({
+        getInitialState: function() {
+          return {
+            cuisine: "",
+            nearbyRestaurants: [],
+            operation: "Search"
+          }
+      },
+        render: function(){
+          return(
+            <div className="main-body">
+              <div className="outer">
+                <div className="inner">
+                  <br/>
+                  <h1>Search Restaurant</h1>
+                  <input type="text" placeholder="Cuisine" id="cuisine" value={this.state.cuisine} style={{width:400}} onChange={this.onChange} />
+                  <input className="button-primary" type="button" value={this.state.operation} onClick={this.search} />
+                  <br/>
+                  <hr/>
+                </div>
+                {
+                  this.state.nearbyRestaurants.map(function(restaurantObj, index){
+                    var item = restaurantObj.restaurant;
+                    return(
+                      <div className="row" key={index}>
+                        <div className="column column-25">
+                          <img src={item.thumb} />
+                        </div>
+                        <div className="column">
+                          <h3>{item.name}</h3>
+                          <b>Address:</b>{item.location.address} <br/>
+                          <b>Cuisines:</b>{item.cuisines} <br/>
+                          <b>Cost for Two (approx):</b> {item.currency} {item.average_cost_for_two} <br/>
+                          <b>Ratings:<span style={{color: "#" + item.user_rating.rating_color}}>{item.user_rating.aggregate_rating}</span></b>
+                        </div>
+                      </div>
+                    )
+                  }, this)
+                }
+              </div>
+            </div>
+           </div>
+         </div>
+          )
+        },
+
+          onChange: function(e) {
+            this.setState({
+              cuisine: e.target.value
+            });
+          },
+           search: function(e) {
+             var $this = this;
+             $this.setState({
+               operation:"Fetching Restaurants..."
+             });
+             navigator.geolocation.getCurrentPosition(function(position) {
+              $this.setState({
+                operation:"Fetching Restaurants..."
+              });
+             var lat = position.coords.latitude;
+             var lng = position.coords.longitude;
+             var url = "https://developers.zomato.com/api/v2.1/search?start=0&count=25&lat=" + lat + "&lon=" + lng + "&radius=5000000&cuisines=" + $this.state.cuisine;
+             $.ajax({
+               url = url,
+               type= "GET",
+               beforeSend: function(request) {
+                 request.setRequestHeader("user-key", localStorage.getItem("zomato-api-key"));
+               },
+               success:function(result) {
+                 $this.setState({
+                   nearbyRestaurants:result.restaurants,
+                   operation:"Search"
+                 });
+               }}
+               )
+           });
+          }
+        });
+
+        ReactDOM.render(
+          <Restaurant />,
+          document.getElementById("root")
+        );
+    </script>
+  </body>
+</html>
