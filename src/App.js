@@ -7,7 +7,7 @@ import Profile from "./components/Profile";
 import Cart from "./components/Cart";
 import Recipes from "./components/Recipes";
 import Logout from "./components/Logout";
-import Restuarant from "./components/Restuarant";
+//import Restuarant from "./components/Restuarant";
 //import Flip from './components/flip';
 
 function App() {
@@ -20,7 +20,6 @@ function App() {
         <Route exact path="/recipes" component={Recipes} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/logout" component={Logout} />
-        <Route exact path="/res" component={Restuarant}/>
         <Redirect to="/" />
       </Switch>
     </div>
