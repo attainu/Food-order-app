@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "../styles/Profile.css";
-import NavBar from "../NavBar";
+import NavBar from "./NavBar";
 
 class Profile extends Component {
   render() {

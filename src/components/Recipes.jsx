@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Food from "./Food";
-import NavBar from "../NavBar";
+import NavBar from "./NavBar";
 
 class Recipes extends Component {
   render() {

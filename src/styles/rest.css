@@ -1,0 +1,16 @@
+.res{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center ;
+   margin: 10px;
+   padding: 0px;
+}
+.resl{
+    width: 450px;
+    height: 450px;
+}
+.res2{
+    display: flex;
+    flex-wrap: wrap;
+}
