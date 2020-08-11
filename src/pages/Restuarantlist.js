@@ -30,7 +30,6 @@ class Restuarantlist extends Component {
                 this.props.restuarant.restaurant.average_cost_for_two}
             </span>
           </h2>
-          <Link>Add to Cart</Link>
         </div>
       </div>
     );

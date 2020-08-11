@@ -98,3 +98,61 @@
     </script>
   </body>
 </html>
+
+<!--
+<div className="res">
+  <div>
+    {this.props.restuarant.restaurant.featured_image !== "" ? (
+      <img
+        src={this.props.restuarant.restaurant.featured_image}
+        alt="no pic"
+        width="250px"
+        height="250px"
+      />
+    ) : (
+      <img src={food} alt="no pic" width="400px" height="400px" />
+    )}
+  </div>
+  <h2>
+    Name:<span>{this.props.restuarant.restaurant.name}</span>
+  </h2>
+  <h2>
+    Average Cost:
+    <span>
+      {this.props.restuarant.restaurant.currency +
+        this.props.restuarant.restaurant.average_cost_for_two}
+    </span>
+  </h2>
+  <h2>
+    Rating:
+    <span>
+      {this.props.restuarant.restaurant.user_rating.aggregate_rating}
+    </span>
+  </h2>
+  <div className="column column-25">
+    <img src={this.props.restuarant.restaurant.thumb} />
+  </div>
+  <div>
+    <h3>{this.props.restuarant.restaurant.name}</h3>
+    <b>Address:</b>
+    {this.props.restuarant.restaurant.location.address} <br />
+    <b>Cuisines:</b>
+    {this.props.restuarant.restaurant.cuisines} <br />
+    <b>Cost for Two (approx):</b>{" "}
+    {this.props.restuarant.restaurant.currency}{" "}
+    {this.props.restuarant.restaurant.average_cost_for_two} <br />
+    <b>
+      Ratings:
+      <span
+        style={{
+          color:
+            "#" +
+            this.props.restuarant.restaurant.user_rating.rating_color,
+        }}
+      >
+        {this.props.restuarant.restaurant.user_rating.aggregate_rating}
+      </span>
+    </b>
+  </div>
+</div>
+-->
