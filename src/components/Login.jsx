@@ -18,8 +18,18 @@ class Login extends Component {
     pcheck: true,
     echeck: true,
     fcheck: true,
+    ll:0
+  };
+  handleHome = () => {
+    this.props.history.push("/home");
   };
 
+  componentDidUpdate(prevProps, prevState){
+      if(this.props.prod !== null){
+        this.props.history.push("/d")
+        console.log(prevProps.logstatus,this.props.logstatus)
+      }
+  }
   login = () => {
     let x = document.getElementById("login");
     let y = document.getElementById("register");
@@ -46,6 +56,7 @@ class Login extends Component {
     e.preventDefault();
     this.props.setuser(this.state.lemail, this.state.lpassword);
     this.setState({ lemail: "", lpassword: "" });
+    this.setState({ll:1})
   };
   handlersubmit = (e) => {
     let a = 0;
@@ -79,16 +90,14 @@ class Login extends Component {
       );
     }
   };
-  handleHome = () => {
-    this.props.history.push("/home");
-  };
+ 
   responseGoogle = (response) => {
     console.log(response);
     this.props.setguser(
       response.profileObj.givenName,
       response.profileObj.email
     );
-    this.handleHome();
+    this.props.history.push("/home");
   };
   responseGoogle1 = (response) => {
     console.log(response);
@@ -97,7 +106,7 @@ class Login extends Component {
   responseFacebook = (response) => {
     console.log(response);
     this.props.setguser(response.name);
-    this.handleHome();
+    this.props.history.push("/home");
   };
 
   render() {
@@ -156,7 +165,7 @@ class Login extends Component {
                   {this.props.logstatus === 200 ? (
                     <>
                       {" "}
-                      <h4 style={{ color: "green" }} onLoad={this.handleHome()}>
+                      <h4 style={{ color: "green" }} >
                         Succesfully Logined
                       </h4>
                     </>

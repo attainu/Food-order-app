@@ -20,3 +20,7 @@ export const GET_HOTEL = "GET_HOTEL";
 export const GET_CURRENT_HOTEL = "GET_CURRENT_HOTEL";
 
 export const GET_HOTEL_DETAILS = "GET_HOTEL_DETAILS";
+
+export const CITY_NAME = "CITY_NAME"
+
+export const GET_PAGE = "GET_PAGE"

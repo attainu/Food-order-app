@@ -6,7 +6,7 @@ export const fetchRestaurant = (id) => async (dispatch) => {
     fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${id}`, {
       headers: {
         Accept: "application/json",
-        "User-Key": "0237b8caaf073e01a40bda294627a4d1",
+        "User-Key": "1648e41ffcc047571f43bdd1d463c0fb",
       },
     })
       .then((res1) => {

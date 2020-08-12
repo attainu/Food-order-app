@@ -46,3 +46,14 @@ span {
   margin-top: 5rem;
   background-color: green;
 }
+
+.pb{
+  margin: 10px;
+  padding: 10px;
+  background-color: blueviolet;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+}

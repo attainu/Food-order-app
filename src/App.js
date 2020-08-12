@@ -6,7 +6,9 @@ import Home from "./components/Home";
 import Profile from "./components/Profile";
 import Recipes from "./components/Recipes";
 import Logout from "./components/Logout";
+
 import RestuarantDetail from "./components/RestuarantDetail";
+import Flip from "./components/flip";
 //import Restuarant from "./components/Restuarant";
 //import Flip from './components/flip';
 
@@ -20,6 +22,7 @@ function App() {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/restuarant/:resid" component={RestuarantDetail}/> 
+        <Route exact path="/d" component={Flip}/>
         <Redirect to="/" />
       </Switch>
     </div>

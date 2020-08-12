@@ -8,10 +8,14 @@ class RestuarantDetail extends Component {
   componentDidMount() {
     this.props.fetchRestaurant(this.props.match.params.resid);
   }
+  handleChange=()=>{
+    this.props.history.push("/home")
+  }
   render() {
     return (
       <div>
         <NavBar />
+        <button onClick={this.handleChange}>Back</button>
         {this.props.rest !== null ? (
           <>
             <div

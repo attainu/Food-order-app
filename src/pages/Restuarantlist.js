@@ -5,7 +5,6 @@ import "../styles/rest.css";
 
 class Restuarantlist extends Component {
   render() {
-    console.log(this.props.restuarant);
     return (
       <div className="resl">
         <Link to={`/restuarant/${this.props.restuarant.restaurant.id}`} key={this.props.restuarant.restaurant.id}>

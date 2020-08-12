@@ -1,12 +1,13 @@
-import { GET_CITIES, GET_HOTEL } from "../actionname";
+import { GET_CITIES, GET_HOTEL,CITY_NAME,GET_PAGE } from "../actionname";
 
-export const setplace = (place) => async (dispatch) => {
+export const setplace = (place,start=0) => async (dispatch) => {
   try {
+    console.log(start)
     dispatch({ type: GET_CITIES, payload: null });
     fetch(`https://developers.zomato.com/api/v2.1/cities?q=${place}`, {
       headers: {
         Accept: "application/json",
-        "User-Key": "0237b8caaf073e01a40bda294627a4d1",
+        "User-Key": "1648e41ffcc047571f43bdd1d463c0fb",
       },
     })
       .then((res) => {
@@ -15,19 +16,20 @@ export const setplace = (place) => async (dispatch) => {
       .then((res) => {
         try {
           fetch(
-            `https://developers.zomato.com/api/v2.1/search?entity_id=${res.location_suggestions[0].id}&entity_type=city&start=0&count=50`,
+            `https://developers.zomato.com/api/v2.1/search?entity_id=${res.location_suggestions[0].id}&entity_type=city&start=${start}&count=18`,
             {
               headers: {
                 Accept: "application/json",
-                "User-Key": "0237b8caaf073e01a40bda294627a4d1",
+                "User-Key": "1648e41ffcc047571f43bdd1d463c0fb",
               },
             }
           )
             .then((res1) => {
-              console.log(res1);
+             
               return res1.json();
             })
             .then((res1) => {
+              console.log(res1);
               dispatch({ type: GET_HOTEL, payload: res1 });
             });
         } catch (err) {
@@ -40,3 +42,11 @@ export const setplace = (place) => async (dispatch) => {
     console.error(err);
   }
 };
+
+export const getcity=(city)=>(dispatch)=>{
+  dispatch({ type: CITY_NAME, payload: city });
+}
+
+export const getpage=(page)=>(dispatch)=>{
+  dispatch({type:GET_PAGE,payload:page})
+}
