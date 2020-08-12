@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import food from "../Images/Img6.jpg";
+import { Link } from "react-router-dom";
 import "../styles/rest.css";
 
 class Restuarantlist extends Component {
@@ -7,6 +8,7 @@ class Restuarantlist extends Component {
     console.log(this.props.restuarant);
     return (
       <div className="resl">
+        <Link to={`/restuarant/${this.props.restuarant.restaurant.id}`} key={this.props.restuarant.restaurant.id}>
         <div className="res">
           <div>
             {this.props.restuarant.restaurant.featured_image !== "" ? (
@@ -17,8 +19,8 @@ class Restuarantlist extends Component {
                 height="250px"
               />
             ) : (
-              <img src={food} alt="no pic" width="250px" height="250px" />
-            )}
+                <img src={food} alt="no pic" width="250px" height="250px" />
+              )}
           </div>
           <h2>
             Name:<span>{this.props.restuarant.restaurant.name}</span>
@@ -31,6 +33,7 @@ class Restuarantlist extends Component {
             </span>
           </h2>
         </div>
+        </Link>
       </div>
     );
   }

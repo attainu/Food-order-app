@@ -35,7 +35,7 @@ class Restuarant extends Component {
           {this.props.hotel !== null ? (
             <>
               {this.props.hotel.restaurants.map((res) => (
-                <Restuarantlist key={uuidv4()} restuarant={res} />
+               <Restuarantlist key={uuidv4()} restuarant={res} />
               ))}
             </>
           ) : (
