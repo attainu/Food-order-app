@@ -4,6 +4,7 @@ import { setplace } from "../redux/actions/restuarantaction";
 import Restuarantlist from "../pages/Restuarantlist";
 import { v4 as uuidv4 } from "uuid";
 import "../styles/rest.css";
+
 class Restuarant extends Component {
   state = {
     place: "",
@@ -35,7 +36,7 @@ class Restuarant extends Component {
           {this.props.hotel !== null ? (
             <>
               {this.props.hotel.restaurants.map((res) => (
-               <Restuarantlist key={uuidv4()} restuarant={res} />
+                <Restuarantlist key={uuidv4()} restuarant={res} />
               ))}
             </>
           ) : (
