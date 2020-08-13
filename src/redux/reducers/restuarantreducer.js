@@ -1,4 +1,4 @@
-import { GET_CITIES,GET_HOTEL,CITY_NAME,GET_PAGE } from "../actionname"
+import { GET_CITIES,GET_HOTEL,CITY_NAME,GET_PAGE} from "../actionname"
 
 const initialState = {
    place:null,

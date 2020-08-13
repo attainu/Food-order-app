@@ -8,8 +8,10 @@ import "../styles/rest.css";
 class Restuarant extends Component {
   state = {
     place: "",
-    category: ""
+    category: "",
+    query:""
   };
+ 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.page !== this.props.page) {
       this.props.setplace(this.props.town, this.props.page);
@@ -23,20 +25,23 @@ class Restuarant extends Component {
     e.preventDefault();
     if (this.state.place !== "") {
       this.props.getcity(this.state.place)
-      this.props.setplace(this.state.place, 0, this.state.category);
-      this.setState({ place: "" });
+      this.props.setplace(this.state.place, 0, this.state.category,this.state.query);
       this.props.getpage(0)
     }
   };
   handlePage = () => {
-    this.props.getpage(this.props.page + 18)
+    this.props.getpage(this.props.page + 9)
   }
   handleprevPage = () => {
-    this.props.getpage(this.props.page - 18)
+    this.props.getpage(this.props.page - 9)
+  }
+  handleSelected=(e)=>{
+    this.setState({cuisines:this.props.value})
   }
   render() {
     return (
       <div>
+
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -45,9 +50,21 @@ class Restuarant extends Component {
             onChange={this.handleChange}
             placeholder="Search for Restaurants"
             id="search"
+            multiple={true}
+            required
           />
-          <label>
-            Pick your favorite flavor:
+         
+          
+          <input type="submit" value="search" id="button" />
+        </form>
+        <div >
+          {" "}
+          {this.props.hotel !== null ? (
+            <>
+            {console.log(this.props.hotel.results_shown)}
+            <center>
+             <label>
+            <h1 style={{color:"white"}}>Pick your favourite Category:</h1>
           <select value={this.state.value} name="category" onChange={this.handleChange}>
               <option value=""> </option>
               <option value="1">Delivery</option>
@@ -65,12 +82,19 @@ class Restuarant extends Component {
               <option value="14">Clubs & Lounges</option>
             </select>
           </label>
-          <input type="submit" value="search" id="button" />
-        </form>
-        <div >
-          {" "}
-          {this.props.hotel !== null ? (
-            <><div className="res2">
+          <h1 style={{color:"white"}}>Search in Your City</h1>
+          <input
+            type="text"
+            name="query"
+            value={this.state.query}
+            onChange={this.handleChange}
+            placeholder="Search by Cuisine or Street or Restuarant Name"
+            id="search"
+            multiple={true}
+            required
+          />
+          </center>
+            <div className="res2">
               {this.props.hotel.restaurants.map((res) => (
                 <Restuarantlist key={uuidv4()} restuarant={res} />
               ))}
@@ -81,7 +105,7 @@ class Restuarant extends Component {
                     <button onClick={this.handleprevPage} className="pb">Previous Page</button> : ""
                 }
                 {
-                  this.props.page !== 72  ?
+                  this.props.page !==90 && this.props.hotel.results_shown>=9 ?
                     <button onClick={this.handlePage} className="pb">Next Page</button> : ""
                 }
               </center>
@@ -103,7 +127,8 @@ const mapStateToProps = (storeState) => {
     city: storeState.restuarantState.place,
     hotel: storeState.restuarantState.hotel,
     town: storeState.restuarantState.city,
-    page: storeState.restuarantState.page
+    page: storeState.restuarantState.page,
+   
   };
 };
 

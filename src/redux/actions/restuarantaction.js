@@ -1,6 +1,6 @@
-import { GET_CITIES, GET_HOTEL,CITY_NAME,GET_PAGE } from "../actionname";
+import { GET_CITIES, GET_HOTEL, CITY_NAME, GET_PAGE } from "../actionname";
 
-export const setplace = (place,start=0,id="") => async (dispatch) => {
+export const setplace = (place, start = 0, id = "",query="") => async (dispatch) => {
   try {
     console.log(start)
     dispatch({ type: GET_CITIES, payload: null });
@@ -14,9 +14,11 @@ export const setplace = (place,start=0,id="") => async (dispatch) => {
         return res.json();
       })
       .then((res) => {
+
+
         try {
           fetch(
-            `https://developers.zomato.com/api/v2.1/search?entity_id=${res.location_suggestions[0].id}&entity_type=city${id!==""?`&category=${id}`:""}&start=${start}&count=18`,
+            `https://developers.zomato.com/api/v2.1/search?entity_id=${res.location_suggestions[0].id}&entity_type=city${id !== "" ? `&category=${id}` : ""}&start=${start}&count=9${query !== "" ? `&q=${query}` : ""}`,
             {
               headers: {
                 Accept: "application/json",
@@ -25,7 +27,7 @@ export const setplace = (place,start=0,id="") => async (dispatch) => {
             }
           )
             .then((res1) => {
-             
+
               return res1.json();
             })
             .then((res1) => {
@@ -43,10 +45,10 @@ export const setplace = (place,start=0,id="") => async (dispatch) => {
   }
 };
 
-export const getcity=(city)=>(dispatch)=>{
+export const getcity = (city) => (dispatch) => {
   dispatch({ type: CITY_NAME, payload: city });
 }
 
-export const getpage=(page)=>(dispatch)=>{
-  dispatch({type:GET_PAGE,payload:page})
+export const getpage = (page) => (dispatch) => {
+  dispatch({ type: GET_PAGE, payload: page })
 }
