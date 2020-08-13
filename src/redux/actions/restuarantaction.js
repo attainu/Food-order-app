@@ -1,4 +1,4 @@
-import { GET_CITIES, GET_HOTEL, CITY_NAME, GET_PAGE } from "../actionname";
+import { GET_CITIES, GET_HOTEL, CITY_NAME, GET_PAGE,GET_QUERY,GET_CATEGORY } from "../actionname";
 
 export const setplace = (place, start = 0, id = "",query="") => async (dispatch) => {
   try {
@@ -51,4 +51,12 @@ export const getcity = (city) => (dispatch) => {
 
 export const getpage = (page) => (dispatch) => {
   dispatch({ type: GET_PAGE, payload: page })
+}
+
+export const getcategory = (page) => (dispatch) => {
+  dispatch({ type: GET_CATEGORY, payload: page })
+}
+
+export const getquery = (page) => (dispatch) => {
+  dispatch({ type: GET_QUERY, payload: page })
 }

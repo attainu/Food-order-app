@@ -8,10 +8,9 @@ export const SET_STATUS = "SET_STATUS";
 
 export const SET_FOOD = "SET_FOOD";
 
-export const SET_FOODLOADING = "SET_FOODLOADING";
-export const ERROR = "error";
-export const LOADING = "loading";
-export const GET_CATEGORIES = "get_Categories";
+export const GET_CATEGORIES = "GET_CATEGORIES"
+
+export const SET_FOODLOADING = "SET_FOODLOADING"
 
 export const GET_CITIES = "GET_CITIES";
 
@@ -25,3 +24,6 @@ export const CITY_NAME = "CITY_NAME"
 
 export const GET_PAGE = "GET_PAGE"
 
+export const GET_CATEGORY = "GET_CATEGORY"
+
+export const GET_QUERY = "GET_QUERY"
