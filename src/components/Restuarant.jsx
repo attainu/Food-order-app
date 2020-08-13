@@ -14,7 +14,7 @@ class Restuarant extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.page !== this.props.page) {
-      this.props.setplace(this.props.town, this.props.page,this.props.cat,this.props.que);
+      this.props.setplace(this.props.town, this.props.page, this.props.cat, this.props.que);
       console.log(prevProps.page, this.props.page)
     }
   }
@@ -43,7 +43,6 @@ class Restuarant extends Component {
   render() {
     return (
       <div>
-
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -55,36 +54,35 @@ class Restuarant extends Component {
             multiple={true}
             required
           />
-
-
-          <input type="submit" value="search" id="button" />
         </form>
         <div >
           {" "}
           {this.props.hotel !== null ? (
             <>
-              {console.log(this.props.hotel.results_shown)}
-              <center>
-                <label>
-                  <h1 style={{ color: "white" }}>Pick your favourite Category:</h1>
-                  <select value={this.state.value} name="category" onChange={this.handleChange}>
-                    <option value=""> </option>
-                    <option value="1">Delivery</option>
-                    <option value="2">Dine-out</option>
-                    <option value="3">Nightlife</option>
-                    <option value="4">Catching-up</option>
-                    <option value="5">Takeaway</option>
-                    <option value="6">Cafes</option>
-                    <option value="7">Daily Menus</option>
-                    <option value="8">Breakfast</option>
-                    <option value="9">Lunch</option>
-                    <option value="10">Dinner</option>
-                    <option value="11">Pubs&bars</option>
-                    <option value="13">Pocket Friendly Delivery</option>
-                    <option value="14">Clubs & Lounges</option>
-                  </select>
-                </label>
-                <h1 style={{ color: "white" }}>Search in Your City</h1>
+              <form onSubmit={this.handleSubmit}>
+                <div className="cat">
+                  <center>
+                    <label>
+                      <span style={{ color: "white" }}>Pick your favourite Category:</span>
+                      <select value={this.state.value} name="category" onChange={this.handleChange}>
+                        <option value=""> </option>
+                        <option value="1">Delivery</option>
+                        <option value="2">Dine-out</option>
+                        <option value="3">Nightlife</option>
+                        <option value="4">Catching-up</option>
+                        <option value="5">Takeaway</option>
+                        <option value="6">Cafes</option>
+                        <option value="7">Daily Menus</option>
+                        <option value="8">Breakfast</option>
+                        <option value="9">Lunch</option>
+                        <option value="10">Dinner</option>
+                        <option value="11">Pubs&bars</option>
+                        <option value="13">Pocket Friendly Delivery</option>
+                        <option value="14">Clubs & Lounges</option>
+                      </select>
+                    </label>
+                  </center>
+                </div>
                 <input
                   type="text"
                   name="query"
@@ -93,9 +91,8 @@ class Restuarant extends Component {
                   placeholder="Search by Cuisine or Street or Restuarant Name"
                   id="search"
                   multiple={true}
-                  required
                 />
-              </center>
+              </form>
               <div className="res2">
                 {this.props.hotel.restaurants.map((res) => (
                   <Restuarantlist key={uuidv4()} restuarant={res} />
@@ -131,7 +128,7 @@ const mapStateToProps = (storeState) => {
     town: storeState.restuarantState.city,
     page: storeState.restuarantState.page,
     cat: storeState.restuarantState.category,
-    que:storeState.restuarantState.query
+    que: storeState.restuarantState.query
   };
 };
 
