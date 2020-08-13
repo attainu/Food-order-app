@@ -2,8 +2,9 @@
 import { SET_USER,SET_STATUS} from "../actionname"
 export const setuser = (email, password) => async (dispatch) => {
     try {
-
-        dispatch({ type: SET_USER, payload: null })
+        if(email==null||password==null||email===""||password===""){
+        dispatch({ type: SET_USER, payload: null })}
+        else{
         fetch("https://backendapi.turing.com/customers/login", {
             body: `email=${email}&password=${password}`,
             headers: {
@@ -20,7 +21,7 @@ export const setuser = (email, password) => async (dispatch) => {
             dispatch({ type: SET_USER, payload: res })
     })
 
-        
+} 
 
 
     }

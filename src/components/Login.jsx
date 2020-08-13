@@ -18,16 +18,13 @@ class Login extends Component {
     pcheck: true,
     echeck: true,
     fcheck: true,
-    ll:0
   };
-  handleHome = () => {
-    this.props.history.push("/home");
-  };
-
+  
   componentDidUpdate(prevProps, prevState){
-      if(this.props.prod !== null){
-        this.props.history.push("/d")
-        console.log(prevProps.logstatus,this.props.logstatus)
+      if(prevProps.logdetails!==this.props.logdetails ){
+        if(this.props.logstatus===200)
+        this.props.history.push("/home")
+        console.log(prevProps.logdetails,this.props.logdetails)
       }
   }
   login = () => {
@@ -56,7 +53,6 @@ class Login extends Component {
     e.preventDefault();
     this.props.setuser(this.state.lemail, this.state.lpassword);
     this.setState({ lemail: "", lpassword: "" });
-    this.setState({ll:1})
   };
   handlersubmit = (e) => {
     let a = 0;

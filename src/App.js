@@ -8,7 +8,7 @@ import Recipes from "./components/Recipes";
 import Logout from "./components/Logout";
 
 import RestuarantDetail from "./components/RestuarantDetail";
-import Flip from "./components/flip";
+import Flip from "./components/Flip";
 //import Restuarant from "./components/Restuarant";
 //import Flip from './components/flip';
 

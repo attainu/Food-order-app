@@ -1,6 +1,6 @@
 import { GET_CITIES, GET_HOTEL,CITY_NAME,GET_PAGE } from "../actionname";
 
-export const setplace = (place,start=0) => async (dispatch) => {
+export const setplace = (place,start=0,id="") => async (dispatch) => {
   try {
     console.log(start)
     dispatch({ type: GET_CITIES, payload: null });
@@ -16,7 +16,7 @@ export const setplace = (place,start=0) => async (dispatch) => {
       .then((res) => {
         try {
           fetch(
-            `https://developers.zomato.com/api/v2.1/search?entity_id=${res.location_suggestions[0].id}&entity_type=city&start=${start}&count=18`,
+            `https://developers.zomato.com/api/v2.1/search?entity_id=${res.location_suggestions[0].id}&entity_type=city${id!==""?`&category=${id}`:""}&start=${start}&count=18`,
             {
               headers: {
                 Accept: "application/json",
