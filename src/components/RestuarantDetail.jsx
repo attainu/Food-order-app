@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import food from "../Images/Img6.jpg";
 import { connect } from "react-redux";
 import { fetchRestaurant } from "../redux/actions/restaurantDetailsAction";
-import NavBar from "./NavBar";
+
 
 class RestuarantDetail extends Component {
   componentDidMount() {
@@ -14,7 +14,6 @@ class RestuarantDetail extends Component {
   render() {
     return (
       <div>
-        <NavBar />
         <button onClick={this.handleChange}>Back</button>
         {this.props.rest !== null ? (
           <>

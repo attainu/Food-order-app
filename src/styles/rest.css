@@ -1,5 +1,17 @@
-body {
+body{
   background-color: #3c2c3e;
+}
+
+.homebg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../Images/homebg.jpg");
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+ background-attachment: fixed;
 }
 .header{
   display: flex;

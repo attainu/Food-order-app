@@ -7,11 +7,7 @@ import Restaurant from "./Restuarant";
 class Home extends Component {
   render() {
     return this.props.logdetails === null ? (
-      // <Redirect to="/" />
-      <div>
-        <NavBar />
-        <Restaurant />
-      </div>
+      <Redirect to="/" />
     ) : (
       <div>
         <NavBar />

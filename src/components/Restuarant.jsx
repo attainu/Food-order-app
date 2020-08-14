@@ -58,7 +58,7 @@ class Restuarant extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="homebg">
         <div className="header">
           <form onSubmit={this.handleSubmit}>
             <div className="form1-box">
