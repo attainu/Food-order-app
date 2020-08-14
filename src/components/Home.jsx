@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
-//import Categories from "./Categories";
 import Restaurant from "./Restuarant";
 
 class Home extends Component {

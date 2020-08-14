@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setplace, getcity, getpage, getcategory, getquery } from "../redux/actions/restuarantaction";
+import {
+  setplace,
+  getcity,
+  getpage,
+  getcategory,
+  getquery,
+} from "../redux/actions/restuarantaction";
 import Restuarantlist from "../pages/Restuarantlist";
 import { v4 as uuidv4 } from "uuid";
 import "../styles/rest.css";
@@ -9,13 +15,18 @@ class Restuarant extends Component {
   state = {
     place: "",
     category: "",
-    query: ""
+    query: "",
   };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.page !== this.props.page) {
-      this.props.setplace(this.props.town, this.props.page, this.props.cat, this.props.que);
-      console.log(prevProps.page, this.props.page)
+      this.props.setplace(
+        this.props.town,
+        this.props.page,
+        this.props.cat,
+        this.props.que
+      );
+      console.log(prevProps.page, this.props.page);
     }
   }
   handleChange = (e) => {
@@ -24,22 +35,27 @@ class Restuarant extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.place !== "") {
-      this.props.getcity(this.state.place)
-      this.props.getcategory(this.state.category)
-      this.props.getquery(this.state.query)
-      this.props.setplace(this.state.place, 0, this.state.category, this.state.query);
-      this.props.getpage(0)
+      this.props.getcity(this.state.place);
+      this.props.getcategory(this.state.category);
+      this.props.getquery(this.state.query);
+      this.props.setplace(
+        this.state.place,
+        0,
+        this.state.category,
+        this.state.query
+      );
+      this.props.getpage(0);
     }
   };
   handlePage = () => {
-    this.props.getpage(this.props.page + 9)
-  }
+    this.props.getpage(this.props.page + 9);
+  };
   handleprevPage = () => {
-    this.props.getpage(this.props.page - 9)
-  }
+    this.props.getpage(this.props.page - 9);
+  };
   handleSelected = (e) => {
-    this.setState({ cuisines: this.props.value })
-  }
+    this.setState({ cuisines: this.props.value });
+  };
   render() {
     return (
       <div>
@@ -55,7 +71,7 @@ class Restuarant extends Component {
             required
           />
         </form>
-        <div >
+        <div>
           {" "}
           {this.props.hotel !== null ? (
             <>
@@ -63,9 +79,16 @@ class Restuarant extends Component {
                 <div className="cat">
                   <center>
                     <label>
-                      <span style={{ color: "white" }}>Pick your favourite Category:</span>
-                      <select value={this.state.value} name="category" onChange={this.handleChange}>
-                        <option value=""> </option>
+                      <span style={{ color: "white", fontSize: "25px" }}>
+                        Pick your favourite Category:
+                      </span>
+                      <select
+                        value={this.state.value}
+                        name="category"
+                        onChange={this.handleChange}
+                        placeholder="Category"
+                      >
+                        <option value=""></option>
                         <option value="1">Delivery</option>
                         <option value="2">Dine-out</option>
                         <option value="3">Nightlife</option>
@@ -99,19 +122,26 @@ class Restuarant extends Component {
                 ))}
               </div>
               <center>
-                {
-                  this.props.page !== 0 ?
-                    <button onClick={this.handleprevPage} className="pb">Previous Page</button> : ""
-                }
-                {
-                  this.props.page !== 90 && this.props.hotel.results_shown >= 9 ?
-                    <button onClick={this.handlePage} className="pb">Next Page</button> : ""
-                }
+                {this.props.page !== 0 ? (
+                  <button onClick={this.handleprevPage} className="pb">
+                    Previous Page
+                  </button>
+                ) : (
+                  ""
+                )}
+                {this.props.page !== 90 &&
+                this.props.hotel.results_shown >= 9 ? (
+                  <button onClick={this.handlePage} className="pb">
+                    Next Page
+                  </button>
+                ) : (
+                  ""
+                )}
               </center>
             </>
           ) : (
-              ""
-            )}
+            ""
+          )}
         </div>
       </div>
     );
@@ -128,8 +158,14 @@ const mapStateToProps = (storeState) => {
     town: storeState.restuarantState.city,
     page: storeState.restuarantState.page,
     cat: storeState.restuarantState.category,
-    que: storeState.restuarantState.query
+    que: storeState.restuarantState.query,
   };
 };
 
-export default connect(mapStateToProps, { setplace, getcity, getpage, getcategory, getquery })(Restuarant);
+export default connect(mapStateToProps, {
+  setplace,
+  getcity,
+  getpage,
+  getcategory,
+  getquery,
+})(Restuarant);
