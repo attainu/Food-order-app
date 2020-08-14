@@ -1,7 +1,46 @@
 body {
   background-color: #3c2c3e;
 }
-
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.search-field{
+  height: 20px;
+  padding: 5px;
+  margin: 2px;
+}
+.skills{
+  width: 400px;
+}
+.location{
+  width: 400px;
+}
+.cate{
+  height: 35px;
+}
+.search-btn
+{
+  height: 35px;
+  width: 120px;
+  background: #f44336;
+  padding: 5px;
+  margin: 2px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.search-btn:hover
+{
+  background: #bb0d00;
+}
+.form1-box{
+  background: rgba(255,255,255,0.5);
+  padding: 20px 20px;
+  width: 80vw;
+}
 .res {
   display: flex;
   flex-direction: column;
@@ -21,16 +60,7 @@ body {
   flex-wrap: wrap;
 }
 
-h2 {
-  font-size: 25px;
-  font-weight: bold;
-  text-align: justify;
-}
 
-span {
-  font-size: 20px;
-  font-weight: lighter;
-}
 
 #search {
   width: 60%;
@@ -58,6 +88,5 @@ span {
   outline: none;
 }
 
-.cat{
-  margin: 20px;
-}
+
+
