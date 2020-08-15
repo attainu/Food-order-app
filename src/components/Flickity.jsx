@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Flickity.css";
-
+import { v4 as uuidv4 } from "uuid";
 const photos = [
   {
     name: "img1",
@@ -42,12 +42,13 @@ export default class Sliders extends Component {
         <Slider {...settings}>
           {photos.map((photo) => {
             return (
-              <div>
+              <div key={uuidv4()}>
                 <img
                   src={photo.url}
                   width="90%"
                   height="50%"
                   style={{ width: "350", height: "500px" }}
+                  alt="nopic"
                 />
               </div>
             );

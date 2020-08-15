@@ -53,11 +53,11 @@ body {
 }
 .res {
   width: 25rem;
-  height: 33rem;
+  height: auto;
   margin: 8rem auto;
   display: flex;
   flex-direction: column;
-  background-color: #d3d3d3;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 2rem;
   position: relative;
   border-radius: 0.5rem;
@@ -101,7 +101,10 @@ body {
   margin-top: 5rem;
   background-color: green;
 }
-
+.cardtext{
+  text-align: justify;
+  margin-bottom: 10px;
+}
 .pb {
   margin: 45px;
   padding: 10px;
@@ -111,4 +114,14 @@ body {
   border-radius: 10px;
   border: 0;
   outline: none;
+}
+.resbtn{
+  background-color: #cb202d;
+  color: white;
+  width: 150px;
+  height: 30px;
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
 }

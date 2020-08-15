@@ -87,10 +87,8 @@ class Restuarant extends Component {
                 className="search-field cate"
                 id="format"
               >
-                <option selected disabled>
-                  Choose a Category
-                </option>
-                <option value=""></option>
+                <option value="" disabled>Choose a Category</option>
+                <option value="">All</option>
                 <option value="1">Delivery</option>
                 <option value="2">Dine-out</option>
                 <option value="3">Nightlife</option>
@@ -115,32 +113,34 @@ class Restuarant extends Component {
           {" "}
           {this.props.hotel !== null ? (
             <>
-              <div className="res2">
-                {this.props.hotel.restaurants.map((res) => (
-                  <Restuarantlist key={uuidv4()} restuarant={res} />
-                ))}
-              </div>
+              <center>
+                <div className="res2">
+                  {this.props.hotel.restaurants.map((res) => (
+                    <Restuarantlist key={uuidv4()} restuarant={res} />
+                  ))}
+                </div>
+              </center>
               <center>
                 {this.props.page !== 0 ? (
                   <button onClick={this.handleprevPage} className="pb">
                     Previous Page
                   </button>
                 ) : (
-                  ""
-                )}
+                    ""
+                  )}
                 {this.props.page !== 90 &&
-                this.props.hotel.results_shown >= 9 ? (
-                  <button onClick={this.handlePage} className="pb">
-                    Next Page
-                  </button>
-                ) : (
-                  ""
-                )}
+                  this.props.hotel.results_shown >= 9 ? (
+                    <button onClick={this.handlePage} className="pb">
+                      Next Page
+                    </button>
+                  ) : (
+                    ""
+                  )}
               </center>
             </>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </div>
       </div>
     );

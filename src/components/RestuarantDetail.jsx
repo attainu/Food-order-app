@@ -16,7 +16,7 @@ class RestuarantDetail extends Component {
     return (
       <div>
         <NavBar />
-        <i class="fa fa-arrow-circle-left" onClick={this.handleChange}></i>
+        <i className="fa fa-arrow-circle-left" onClick={this.handleChange}></i>
         {this.props.rest !== null ? (
           <>
             <div

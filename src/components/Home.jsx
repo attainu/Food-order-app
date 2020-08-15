@@ -14,7 +14,7 @@ class Home extends Component {
       <div>
         <NavBar />
         <Restaurant />
-        <Flickety />
+        {this.props.hotel===null?<Flickety />:""}
       </div>
     );
   }
@@ -25,6 +25,7 @@ const mapStateToProps = (storeState) => {
     logdetails: storeState.loginState.user,
     logstatus: storeState.loginState.status,
     prod: storeState.registerState.items,
+    hotel: storeState.restuarantState.hotel,
   };
 };
 
