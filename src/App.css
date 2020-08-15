@@ -3,6 +3,18 @@
   padding: 0;
 }
 
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../src/Images/homebg.jpg");
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  background-attachment: fixed;
+}
+
 h1 {
   text-align: center;
   font-size: 30px;

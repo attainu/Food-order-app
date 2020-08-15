@@ -1,0 +1,28 @@
+.carousel {
+  text-align: center;
+}
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+.slides {
+  position: relative;
+  margin-left: 10rem;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.slides .slick-prev {
+  left: 0;
+}
+
+.slides .slick-next {
+  right: 10%;
+}

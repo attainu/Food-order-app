@@ -15,7 +15,7 @@ class Profile extends Component {
           <img
             src="https://img.favpng.com/3/7/23/login-google-account-computer-icons-user-png-favpng-ZwgqcU6LVRjJucQ9udYpX00qa.jpg"
             alt="Profile pic"
-            style={{ width: 200, height: 200, borderRadius: "50%" }}
+            style={{ width: 300, height: 300, borderRadius: "50%" }}
           />
           <h1>{this.props.logdetails.customer.name}</h1>
           <p>{this.props.logdetails.customer.email}</p>

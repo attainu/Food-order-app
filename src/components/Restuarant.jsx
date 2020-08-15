@@ -59,39 +59,55 @@ class Restuarant extends Component {
   render() {
     return (
       <div className="homebg">
+        <h1 className="ft">Search Your Favourite Restaurant</h1>
         <div className="header">
           <form onSubmit={this.handleSubmit}>
             <div className="form1-box">
-              <input className="search-field skills" name="place" type="text" placeholder="Search for Restaurants in a City" value={this.state.place}
-                onChange={this.handleChange} />
-              <input className="search-field location" type="text" name="query" value={this.state.query}
+              <input
+                className="search-field skills"
+                name="place"
+                type="text"
+                placeholder="Search for Restaurants in a City"
+                value={this.state.place}
                 onChange={this.handleChange}
-                placeholder="Search by Cuisine or Street or Restuarant Name in the City" />
-                 <select
-                      value={this.state.value}
-                      name="category"
-                      onChange={this.handleChange}
-                      placeholder="Category"
-                      className="search-field cate"
-                      id="format"
-                    >
-                      <option selected disabled>Choose a Category</option>
-                      <option value=""></option>
-                      <option value="1">Delivery</option>
-                      <option value="2">Dine-out</option>
-                      <option value="3">Nightlife</option>
-                      <option value="4">Catching-up</option>
-                      <option value="5">Takeaway</option>
-                      <option value="6">Cafes</option>
-                      <option value="7">Daily Menus</option>
-                      <option value="8">Breakfast</option>
-                      <option value="9">Lunch</option>
-                      <option value="10">Dinner</option>
-                      <option value="11">Pubs&bars</option>
-                      <option value="13">Pocket Friendly Delivery</option>
-                      <option value="14">Clubs & Lounges</option>
-                    </select>
-                <button className="search-btn" type="submit" >SEARCH</button>
+              />
+              <input
+                className="search-field location"
+                type="text"
+                name="query"
+                value={this.state.query}
+                onChange={this.handleChange}
+                placeholder="Search by Cuisine or Street or Restuarant Name in the City"
+              />
+              <select
+                value={this.state.value}
+                name="category"
+                onChange={this.handleChange}
+                placeholder="Category"
+                className="search-field cate"
+                id="format"
+              >
+                <option selected disabled>
+                  Choose a Category
+                </option>
+                <option value=""></option>
+                <option value="1">Delivery</option>
+                <option value="2">Dine-out</option>
+                <option value="3">Nightlife</option>
+                <option value="4">Catching-up</option>
+                <option value="5">Takeaway</option>
+                <option value="6">Cafes</option>
+                <option value="7">Daily Menus</option>
+                <option value="8">Breakfast</option>
+                <option value="9">Lunch</option>
+                <option value="10">Dinner</option>
+                <option value="11">Pubs&bars</option>
+                <option value="13">Pocket Friendly Delivery</option>
+                <option value="14">Clubs & Lounges</option>
+              </select>
+              <button className="search-btn" type="submit">
+                SEARCH
+              </button>
             </div>
           </form>
         </div>
@@ -110,21 +126,21 @@ class Restuarant extends Component {
                     Previous Page
                   </button>
                 ) : (
-                    ""
-                  )}
+                  ""
+                )}
                 {this.props.page !== 90 &&
-                  this.props.hotel.results_shown >= 9 ? (
-                    <button onClick={this.handlePage} className="pb">
-                      Next Page
-                    </button>
-                  ) : (
-                    ""
-                  )}
+                this.props.hotel.results_shown >= 9 ? (
+                  <button onClick={this.handlePage} className="pb">
+                    Next Page
+                  </button>
+                ) : (
+                  ""
+                )}
               </center>
             </>
           ) : (
-              ""
-            )}
+            ""
+          )}
         </div>
       </div>
     );

@@ -1,4 +1,4 @@
-body{
+body {
   background-color: #3c2c3e;
 }
 
@@ -11,32 +11,31 @@ body{
   background-position: center;
   background-size: cover;
   position: absolute;
- background-attachment: fixed;
+  background-attachment: fixed;
 }
-.header{
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 10px auto;
 }
-.search-field{
+.search-field {
   height: 20px;
   padding: 5px;
   margin: 2px;
 }
-.skills{
+.skills {
   width: 400px;
 }
-.location{
+.location {
   width: 400px;
 }
-.cate{
+.cate {
   height: 35px;
 }
-.search-btn
-{
+.search-btn {
   height: 35px;
-  width: 120px;
+  width: 150px;
   background: #f44336;
   padding: 5px;
   margin: 2px;
@@ -44,35 +43,49 @@ body{
   color: #fff;
   cursor: pointer;
 }
-.search-btn:hover
-{
+.search-btn:hover {
   background: #bb0d00;
 }
-.form1-box{
-  background: rgba(255,255,255,0.5);
+.form1-box {
+  background: rgba(255, 255, 255, 0.5);
   padding: 20px 20px;
   width: 80vw;
 }
 .res {
+  width: 25rem;
+  height: 33rem;
+  margin: 8rem auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 10rem;
-  padding: 0px;
-  width: 90%;
-  color: #fff;
+  background-color: #d3d3d3;
+  padding: 2rem;
+  position: relative;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 1px 1px #aaa;
 }
 .resl {
   width: 450px;
   height: 450px;
+  border-radius: 0.5rem;
+  object-fit: cover;
 }
 .res2 {
+  width: 90%;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-
+.ft {
+  font-size: 6rem;
+  color: white;
+  text-transform: uppercase;
+  background-color: #cb202d;
+  margin: 4rem 0;
+  border: 5px solid #cb202d;
+}
 
 #search {
   width: 60%;
@@ -89,8 +102,8 @@ body{
   background-color: green;
 }
 
-.pb{
-  margin: 10px;
+.pb {
+  margin: 45px;
   padding: 10px;
   background-color: blueviolet;
   color: #fff;
@@ -99,6 +112,3 @@ body{
   border: 0;
   outline: none;
 }
-
-
-

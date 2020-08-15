@@ -1,0 +1,22 @@
+.pic {
+  position: absolute;
+  justify-content: center;
+  top: 350px;
+  left: 120px;
+  right: 175px;
+}
+
+.details {
+  position: absolute;
+  text-align: center;
+  font-size: 24px;
+  justify-content: center;
+  top: 350px;
+  left: 750px;
+  right: 175px;
+}
+
+.fa {
+  color: #fff;
+  font-size: 55px;
+}

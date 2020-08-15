@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
 import Restaurant from "./Restuarant";
+import Flickety from "./Flickity";
+import "../styles/Home.css";
 
 class Home extends Component {
   render() {
@@ -12,6 +14,7 @@ class Home extends Component {
       <div>
         <NavBar />
         <Restaurant />
+        <Flickety />
       </div>
     );
   }

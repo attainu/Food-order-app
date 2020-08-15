@@ -9,7 +9,6 @@ import Logout from "./components/Logout";
 
 import RestuarantDetail from "./components/RestuarantDetail";
 
-
 function App() {
   return (
     <div className="App">
