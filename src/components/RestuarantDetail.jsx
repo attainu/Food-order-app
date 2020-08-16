@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import food from "../Images/Img6.jpg";
 import { connect } from "react-redux";
-import { fetchRestaurant } from "../redux/actions/restaurantDetailsAction";
+import { fetchRestaurant, getreviews } from "../redux/actions/restaurantDetailsAction";
 import "../styles/RestaurantDetails.css";
 import NavBar from "./NavBar";
+import Review from "./Review";
+import { v4 as uuidv4 } from "uuid";
 
 class RestuarantDetail extends Component {
   componentDidMount() {
     this.props.fetchRestaurant(this.props.match.params.resid);
+    this.props.getreviews(this.props.match.params.resid)
   }
   handleChange = () => {
     this.props.history.push("/home");
@@ -86,6 +89,9 @@ class RestuarantDetail extends Component {
               <br />
               <br />
             </div>
+            <div className="revs">
+              {this.props.rev!==null?this.props.rev.user_reviews.map(re=>(<Review key={uuidv4()} rev={re}/>)):""}
+            </div>
           </>
         ) : (
           <h1>Loading...</h1>
@@ -103,7 +109,8 @@ const mapStateToProps = (storeState) => {
     city: storeState.restuarantState.place,
     hotel: storeState.restuarantState.hotel,
     rest: storeState.restuarantDetailState.hotelDetails,
+    rev: storeState.restuarantDetailState.review
   };
 };
 
-export default connect(mapStateToProps, { fetchRestaurant })(RestuarantDetail);
+export default connect(mapStateToProps, { fetchRestaurant,getreviews })(RestuarantDetail);

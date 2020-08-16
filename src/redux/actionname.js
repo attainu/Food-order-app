@@ -27,3 +27,5 @@ export const GET_PAGE = "GET_PAGE"
 export const GET_CATEGORY = "GET_CATEGORY"
 
 export const GET_QUERY = "GET_QUERY"
+
+export const GET_REVIEWS = "GET_REVIEWS"

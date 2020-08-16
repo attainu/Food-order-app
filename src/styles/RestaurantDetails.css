@@ -20,3 +20,23 @@
   color: #fff;
   font-size: 55px;
 }
+.revs{
+  margin-top: 600px;
+  text-align: center;
+}
+.review{
+ 
+  color: white;
+  margin: 20px;
+  padding: 20px;
+  
+}
+
+.review p img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.review p{
+  margin: 5px;
+}
