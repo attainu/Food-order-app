@@ -4,18 +4,19 @@ import { v4 as uuidv4 } from "uuid";
 import { connect } from "react-redux";
 import Recipe from "../pages/Recipe";
 import Alert from "../pages/Alert";
-import { setfoods, getpage } from "../redux/actions/foodaction";
+import { setfoods } from "../redux/actions/foodaction";
 
 class Food extends Component {
   state = {
     query: "",
     alert: "",
+    start:0,
+    end:9
   };
-  componentDidMount(prevProps, prevState) {
-    this.props.setfoods();
-    if (prevProps.page !== this.props.page) {
-      this.props.setfoods(this.props.page);
-      console.log(prevProps.page, this.props.page);
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.start !== this.state.start) {
+      this.props.setfoods(this.state.query,this.state.start,this.state.end)
+      console.log(prevState.start,this.state.start,this.state.end);
     }
   }
   handleChange = (e) => {
@@ -25,18 +26,19 @@ class Food extends Component {
     e.preventDefault();
     if (this.state.query !== "") {
       this.props.setfoods(this.state.query);
-      this.props.getpage(0);
       console.log(this.props.items);
     } else {
       this.setState({ alert: "Please Enter Food Recipe" });
     }
   };
-  handlePage = () => {
-    this.props.getpage(this.props.page + 9);
-  };
-  handleprevPage = () => {
-    this.props.getpage(this.props.page - 9);
-  };
+  handleNext=()=>{
+      this.setState({start:this.state.start+9})
+      this.setState({end:this.state.end+9})
+  }
+  handlePrev=()=>{
+    this.setState({start:this.state.start-9})
+    this.setState({end:this.state.end-9})
+  }
   render() {
     return (
       <div className="food">
@@ -59,41 +61,15 @@ class Food extends Component {
               <Recipe key={uuidv4()} recipe={recipe} />
             ))
           ) : (
-            <h1>Loading</h1>
-          )}
+              <h1>Loading</h1>
+            )}
         </div>
         <div>
-          {" "}
-          {this.props.items !== null ? (
-            <>
-              <center>
-                <div className="resp1">
-                  {this.props.items.map((recipe) => (
-                    <Recipe key={uuidv4()} recipe={recipe} />
-                  ))}
-                </div>
-              </center>
-              <center>
-                {this.props.page !== 0 ? (
-                  <button onClick={this.handleprevPage} className="pg">
-                    Previous Page
-                  </button>
-                ) : (
-                  ""
-                )}
-                {this.props.page !== 24 &&
-                this.props.items.results_shown >= 9 ? (
-                  <button onClick={this.handlePage} className="pg">
-                    Next Page
-                  </button>
-                ) : (
-                  ""
-                )}
-              </center>
-            </>
-          ) : (
-            ""
-          )}
+          {this.props.items !== null ? <>   
+            {this.state.start!==0?<button onClick={this.handlePrev} className="pb">Prev Page</button>:""}
+            {this.state.end<=18&&this.props.items.length>=9?<button onClick={this.handleNext} className="pb">Next Page</button>:""}  
+          </> : ""
+          }
         </div>
       </div>
     );
@@ -104,8 +80,8 @@ const mapStateToProps = (storeState) => {
   return {
     items: storeState.foodState.foods,
     isLoading: storeState.foodState.foodLoading,
-    page: storeState.foodState.page,
   };
 };
 
-export default connect(mapStateToProps, { setfoods, getpage })(Food);
+export default connect(mapStateToProps, { setfoods })(Food);
+
