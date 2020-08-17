@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Food from "./Food";
 import NavBar from "./NavBar";
+import RecipeSlider from "./RecipeSlider";
 
 class Recipes extends Component {
   render() {
@@ -8,6 +9,7 @@ class Recipes extends Component {
       <div>
         <NavBar />
         <Food />
+        {this.props.items === null ? <RecipeSlider /> : ""}
       </div>
     );
   }
