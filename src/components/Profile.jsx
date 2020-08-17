@@ -14,10 +14,12 @@ class Profile extends Component {
     reader.onload = () => {
       if (reader.readyState === 2) {
         this.setState({ profileImg: reader.result });
+        console.log(reader.result);
       }
     };
     reader.readAsDataURL(e.target.files[0]);
   };
+
   render() {
     const { profileImg } = this.state;
     return this.props.logdetails === null ? (

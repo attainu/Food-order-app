@@ -7,7 +7,7 @@ import {
 import food from "../Images/Img6.jpg";
 import "../styles/rest.css";
 import { withRouter } from "react-router";
-//import NavBar from "./NavBar";
+
 class Favrest extends Component {
   handleRes = () => {
     this.props.history.push(`/restuarant/${this.props.obj.id}`);
