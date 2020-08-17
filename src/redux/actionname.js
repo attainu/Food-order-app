@@ -33,3 +33,5 @@ export const GET_REVIEWS = "GET_REVIEWS"
 export const GET_FAV = "GET_FAV"
 
 export const GET_FAV_RES = "GET_FAV_RES"
+
+export const DEL_FAV = "DEL_FAV"
