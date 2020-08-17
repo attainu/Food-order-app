@@ -7,25 +7,25 @@ import { v4 as uuidv4 } from "uuid";
 const photos = [
   {
     name: "img1",
-    url: "https://media.timeout.com/images/105239239/image.jpg",
+    url: "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?cs=srgb&dl=pexels-pixabay-315755.jpg&fm=jpg",
   },
   {
     name: "img2",
     url:
-      "https://gffoodservice.org/wp-content/uploads/2015/03/restaurant-e1456862749354.jpg",
+      "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?cs=srgb&dl=pexels-dzenina-lukac-1583884.jpg&fm=jpg",
   },
   {
     name: "img3",
     url:
-      "https://www.galwaytourism.ie/wp-content/uploads/2019/05/top-5-restaurants.jpg",
+      "https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?cs=srgb&dl=pexels-elli-1854652.jpg&fm=jpg",
   },
   {
     name: "img4",
-    url: "https://il8.picdn.net/shutterstock/videos/3743186/thumb/1.jpg",
+    url: "https://cdn.pixabay.com/photo/2017/10/09/19/29/eat-2834549_1280.jpg",
   },
 ];
 
-export default class Sliders extends Component {
+ class FoodSliders extends Component {
   render() {
     const settings = {
       dots: true,
@@ -58,3 +58,5 @@ export default class Sliders extends Component {
     );
   }
 }
+
+export default FoodSliders

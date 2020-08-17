@@ -1,7 +1,7 @@
 import axios from "axios"
 import config from "../../config";
 import {SET_FOOD,SET_FOODLOADING}from "../actionname"
-export const setfoods = (name="pizza",start=0,end=9) => async (dispatch) => {
+export const setfoods = (name="",start=0,end=9) => async (dispatch) => {
     try {
 
         dispatch({ type: SET_FOOD, payload: null })

@@ -1,18 +1,29 @@
 import React, { Component } from "react";
 import Food from "./Food";
 import NavBar from "./NavBar";
-import RecipeSlider from "./RecipeSlider";
+import { connect } from "react-redux";
+import FoodSliders from "./RecipeSlider";
 
 class Recipes extends Component {
   render() {
+    console.log(this.props.items)
     return (
       <div>
         <NavBar />
         <Food />
-        {this.props.items === null ? <RecipeSlider /> : ""}
+        {this.props.items.length===0?<FoodSliders />:""}
       </div>
     );
   }
 }
 
-export default Recipes;
+const mapStateToProps = (storeState) => {
+  return {
+    items: storeState.foodState.foods,
+    isLoading: storeState.foodState.foodLoading,
+  };
+};
+
+
+export default connect(mapStateToProps)(Recipes);
+
