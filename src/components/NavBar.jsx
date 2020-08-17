@@ -8,6 +8,7 @@ const NavBar = () => {
       <Link to="/home">Home</Link>
       <Link to="/recipes">Recipes</Link>
       <Link to="/profile">Profile</Link>
+      <Link to="/fav">Favourites</Link>
       <Link to="/logout">Logout</Link>
     </div>
   );
