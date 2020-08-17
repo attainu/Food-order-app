@@ -14,7 +14,7 @@ class Favourites extends Component {
         <NavBar />
         <center>
           <div style={{ color: "white" }} className="res2">
-            {this.props.favres !== [] ? (
+            {this.props.favres &&this.props.favres.length!==0 ? (
               this.props.favres.map((fav) => (
                 <div key={uuidv4()}>
                   <Favrest obj={fav} />

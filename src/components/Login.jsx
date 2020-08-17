@@ -113,7 +113,7 @@ class Login extends Component {
             <div className="headingbar">
               <center>
                 <p className="headingtext">
-                  <i>Tomato</i>
+                  Tomato
                 </p>
               </center>
             </div>

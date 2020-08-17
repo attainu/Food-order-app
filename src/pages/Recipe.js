@@ -13,9 +13,11 @@ class Recipe extends Component  {
         <div className="recipe">
           <h2>{label}</h2>
           <img src={image} alt={label} />
-          <a href={url} target="_blank" rel="noopener noreferrer">
+          <center>
+          <a href={url} target="_blank" rel="noopener noreferrer" style={{color:'white',margin:"10px"}}>
            How To Make It
           </a>
+          </center>
           <button onClick={() => this.setState({show:!this.state.show})}>Ingredients</button>
           {this.state.show && <RecipeDetails ingredients={ingredients} />}
         </div>

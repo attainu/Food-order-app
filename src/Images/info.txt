@@ -1,0 +1,11 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: KaushanScript-Regular
+font link: https://fonts.google.com/specimen/Kaushan+Script
+font author: Impallari Type
+font author site: www.impallari.com
+Slogan Font: LindenHill-webfont.ttf
+
+{"bg":"#D85A3B","icon":"#D8C93B","font":"#ffffff","slogan":"#ffffff"}
+      

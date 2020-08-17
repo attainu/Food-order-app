@@ -1,12 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 .wrapper {
   font-size: 30px;
   font-weight: 700;
-  height: 50px;
+  height: auto;
   padding: 20px 20px;
   text-align: right;
   text-decoration: none;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
-
+.navstyle{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .wrapper a {
   text-decoration: none;
   padding: 15px;

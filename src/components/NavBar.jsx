@@ -4,13 +4,19 @@ import "../styles/NavBar.css";
 
 const NavBar = () => {
   return (
-    <div className="wrapper">
-      <Link to="/home">Home</Link>
-      <Link to="/recipes">Recipes</Link>
-      <Link to="/profile">Profile</Link>
-      <Link to="/fav">Favourites</Link>
-      <Link to="/logout">Logout</Link>
+    <><div className="navstyle">
+      <p className="headingtext">
+        Tomato
+      </p>
+      <div className="wrapper">
+        <Link to="/home">Home</Link>
+        <Link to="/recipes">Recipes</Link>
+        <Link to="/profile">Profile</Link>
+        <Link to="/fav">Favourites</Link>
+        <Link to="/logout">Logout</Link>
+      </div>
     </div>
+    </>
   );
 };
 

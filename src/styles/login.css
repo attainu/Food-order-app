@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Pangolin&display=swap');
+
 .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../Images/zompic.jpg");
@@ -8,23 +10,19 @@
   position: absolute;
   overflow: hidden;
 }
-.headingbar {
-  width: 15%;
-  height: 15%;
-  margin: 10px;
-  background-color: #cb202d;
-}
+
 .headingtext {
   font-weight: bolder;
-  font-size: 3.5rem;
+  font-size: 10rem;
   margin: 10px;
-  color: white;
+  color: #cb202d;
+  font-family: 'Pacifico', cursive;
 }
 .form-box {
   width: 400px;
   height: 550px;
   position: relative;
-  margin: 6% auto;
+  margin: auto;
   background: #f8f8f8;
   overflow: hidden;
   padding: 5px;
@@ -58,7 +56,6 @@
   border-radius: 30px;
   transition: 0.5s;
 }
-
 .input-group {
   top: 130px;
   position: absolute;

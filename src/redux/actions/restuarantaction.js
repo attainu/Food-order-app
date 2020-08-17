@@ -15,7 +15,7 @@ export const setplace = (place, start = 0, id = "",query="") => async (dispatch)
       })
       .then((res) => {
 
-
+          if(res.location_suggestions.length!==0){
         try {
           fetch(
             `https://developers.zomato.com/api/v2.1/search?entity_id=${res.location_suggestions[0].id}&entity_type=city${id !== "" ? `&category=${id}` : ""}&start=${start}&count=9${query !== "" ? `&q=${query}` : ""}`,
@@ -37,7 +37,10 @@ export const setplace = (place, start = 0, id = "",query="") => async (dispatch)
         } catch (err) {
           console.error(err);
         }
-
+      }
+      else{
+        alert("please enter correct name")
+      }
         dispatch({ type: GET_CITIES, payload: res });
       });
   } catch (err) {

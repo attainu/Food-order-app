@@ -46,6 +46,7 @@ class Restuarant extends Component {
       );
       this.props.getpage(0);
     }
+  
   };
   handlePage = () => {
     this.props.getpage(this.props.page + 9);
@@ -59,10 +60,12 @@ class Restuarant extends Component {
   render() {
     return (
       <div className="homebg">
-        <h1 className="ft">Search Your Favourite Restaurant</h1>
+        <p className="ft">Search Your Favourite Restaurant</p>
         <div className="header">
+        
           <form onSubmit={this.handleSubmit}>
             <div className="form1-box">
+           
               <input
                 className="search-field skills"
                 name="place"
@@ -70,6 +73,7 @@ class Restuarant extends Component {
                 placeholder="Search for Restaurants in a City"
                 value={this.state.place}
                 onChange={this.handleChange}
+                required
               />
               <input
                 className="search-field location"

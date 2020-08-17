@@ -42,7 +42,7 @@ class Food extends Component {
   render() {
     return (
       <div className="food">
-        <h1 className="ft">Search Your Favourite Food Recipes</h1>
+        <p className="ft">Search Your Favourite Food Recipes</p>
         <form onSubmit={this.handleSubmit} className="search-form">
           {this.state.alert !== "" && <Alert alert={this.state.alert} />}
           <input
