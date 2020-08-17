@@ -9,7 +9,8 @@
 }
 .slides {
   position: relative;
-  margin-left: 10rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 .slides .slick-prev,
@@ -20,9 +21,9 @@
 }
 
 .slides .slick-prev {
-  left: 0;
+  left: 0%;
 }
 
 .slides .slick-next {
-  right: 10%;
+  right: 0%;
 }

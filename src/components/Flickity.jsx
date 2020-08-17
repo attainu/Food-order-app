@@ -12,12 +12,12 @@ const photos = [
   {
     name: "img2",
     url:
-      "https://gffoodservice.org/wp-content/uploads/2015/03/restaurant-e1456862749354.jpg",
+      "https://www.galwaytourism.ie/wp-content/uploads/2019/05/top-5-restaurants.jpg",
   },
   {
     name: "img3",
     url:
-      "https://www.galwaytourism.ie/wp-content/uploads/2019/05/top-5-restaurants.jpg",
+      "https://gffoodservice.org/wp-content/uploads/2015/03/restaurant-e1456862749354.jpg",
   },
   {
     name: "img4",
@@ -30,11 +30,12 @@ export default class Sliders extends Component {
     const settings = {
       dots: true,
       infinite: true,
-      speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 2,
       slidesToScroll: 1,
-      arrows: true,
-      fade: true,
+      autoplay: true,
+      speed: 3000,
+      autoplaySpeed: 3000,
+      cssEase: "linear",
       className: "slides",
     };
     return (
@@ -58,4 +59,3 @@ export default class Sliders extends Component {
     );
   }
 }
-

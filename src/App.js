@@ -6,7 +6,6 @@ import Home from "./components/Home";
 import Profile from "./components/Profile";
 import Recipes from "./components/Recipes";
 import Logout from "./components/Logout";
-
 import RestuarantDetail from "./components/RestuarantDetail";
 import Favourites from "./components/Favourites";
 

@@ -7,7 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 const photos = [
   {
     name: "img1",
-    url: "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?cs=srgb&dl=pexels-pixabay-315755.jpg&fm=jpg",
+    url:
+      "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?cs=srgb&dl=pexels-pixabay-315755.jpg&fm=jpg",
   },
   {
     name: "img2",
@@ -25,16 +26,17 @@ const photos = [
   },
 ];
 
- class FoodSliders extends Component {
+class FoodSliders extends Component {
   render() {
     const settings = {
       dots: true,
       infinite: true,
-      speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 2,
       slidesToScroll: 1,
-      arrows: true,
-      fade: true,
+      autoplay: true,
+      speed: 3000,
+      autoplaySpeed: 3000,
+      cssEase: "linear",
       className: "slides",
     };
     return (
@@ -59,4 +61,4 @@ const photos = [
   }
 }
 
-export default FoodSliders
+export default FoodSliders;

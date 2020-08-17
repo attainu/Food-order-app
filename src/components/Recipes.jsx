@@ -6,12 +6,12 @@ import FoodSliders from "./RecipeSlider";
 
 class Recipes extends Component {
   render() {
-    console.log(this.props.items)
+    console.log(this.props.items);
     return (
       <div>
         <NavBar />
         <Food />
-        {this.props.items.length===0?<FoodSliders />:""}
+        {this.props.items.length === 0 ? <FoodSliders /> : ""}
       </div>
     );
   }
@@ -24,6 +24,4 @@ const mapStateToProps = (storeState) => {
   };
 };
 
-
 export default connect(mapStateToProps)(Recipes);
-
