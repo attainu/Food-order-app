@@ -14,7 +14,7 @@ class Recipe extends Component  {
           <h2>{label}</h2>
           <img src={image} alt={label} />
           <a href={url} target="_blank" rel="noopener noreferrer">
-            URL
+           How To Make It
           </a>
           <button onClick={() => this.setState({show:!this.state.show})}>Ingredients</button>
           {this.state.show && <RecipeDetails ingredients={ingredients} />}

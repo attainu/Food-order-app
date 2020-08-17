@@ -11,7 +11,8 @@ class Recipes extends Component {
       <div>
         <NavBar />
         <Food />
-        {this.props.items.length === 0 ? <FoodSliders /> : ""}
+        {this.props.items === null ? <FoodSliders /> : ""}
+        
       </div>
     );
   }

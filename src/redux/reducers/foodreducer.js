@@ -1,7 +1,7 @@
 import { SET_FOOD, SET_FOODLOADING, GET_PAGE } from "../actionname";
 
 const initialState = {
-  foods: [],
+  foods: null,
   foodLoading: false,
   page: 0,
 };
