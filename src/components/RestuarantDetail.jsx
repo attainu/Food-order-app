@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import Review from "./Review";
 import { v4 as uuidv4 } from "uuid";
 
+
 class RestuarantDetail extends Component {
   componentDidMount() {
     this.props.fetchRestaurant(this.props.match.params.resid);
@@ -109,7 +110,8 @@ const mapStateToProps = (storeState) => {
     city: storeState.restuarantState.place,
     hotel: storeState.restuarantState.hotel,
     rest: storeState.restuarantDetailState.hotelDetails,
-    rev: storeState.restuarantDetailState.review
+    rev: storeState.restuarantDetailState.review,
+    fav: storeState.restuarantDetailState.fav
   };
 };
 

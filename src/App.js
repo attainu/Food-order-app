@@ -8,6 +8,7 @@ import Recipes from "./components/Recipes";
 import Logout from "./components/Logout";
 
 import RestuarantDetail from "./components/RestuarantDetail";
+import Favourites from "./components/Favourites";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/recipes" component={Recipes} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/logout" component={Logout} />
+        <Route exact path="/fav" component={Favourites} />
         <Route exact path="/restuarant/:resid" component={RestuarantDetail} />
         <Redirect to="/" />
       </Switch>

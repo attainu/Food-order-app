@@ -2,10 +2,20 @@ import React, { Component } from "react";
 import food from "../Images/Img6.jpg";
 import { withRouter } from "react-router";
 import "../styles/rest.css";
+import { connect } from "react-redux";
+import { getfav, getfavres } from "../redux/actions/restaurantDetailsAction";
 
 class Restuarantlist extends Component {
   handleRes=()=>{
     this.props.history.push(`/restuarant/${this.props.restuarant.restaurant.id}`)
+  }
+  handleFav=()=>{
+    var check=this.props.fav.includes(this.props.restuarant.restaurant.id)
+    if(check===false){
+    this.props.getfav(this.props.restuarant.restaurant.id)
+    this.props.getfavres(this.props.restuarant.restaurant.id,this.props.restuarant.restaurant.featured_image,this.props.restuarant.restaurant.name,this.props.restuarant.restaurant.currency +
+      this.props.restuarant.restaurant.average_cost_for_two)
+  }
   }
   render() {
     return (
@@ -39,11 +49,28 @@ class Restuarantlist extends Component {
               </span>
             </h2>
             </div>
-            <button onClick={this.handleRes} className="resbtn">View Restuarant</button>
+            <div>  <button onClick={this.handleRes} className="resbtn">View Restuarant</button>
+            <button onClick={this.handleFav} className="resbtn">Add to Favourites</button></div>
+           
           </div>
       </div>
     );
   }
 }
 
-export default withRouter(Restuarantlist);
+const mapStateToProps = (storeState) => {
+  return {
+    logdetails: storeState.loginState.user,
+    logstatus: storeState.loginState.status,
+    prod: storeState.registerState.items,
+    city: storeState.restuarantState.place,
+    hotel: storeState.restuarantState.hotel,
+    rest: storeState.restuarantDetailState.hotelDetails,
+    rev: storeState.restuarantDetailState.review,
+    fav: storeState.restuarantDetailState.fav
+  };
+};
+
+
+
+export default connect(mapStateToProps,{getfav,getfavres})(withRouter(Restuarantlist))

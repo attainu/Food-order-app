@@ -1,4 +1,4 @@
-import { GET_HOTEL_DETAILS, GET_REVIEWS } from "../actionname";
+import { GET_HOTEL_DETAILS, GET_REVIEWS,GET_FAV ,GET_FAV_RES} from "../actionname";
 
 export const fetchRestaurant = (id) => async (dispatch) => {
   try {
@@ -42,4 +42,12 @@ export const getreviews = (id) => async (dispatch) => {
   } catch (err) {
     console.error(err);
   }
+};
+
+export const getfav = (id) => (dispatch) => {
+  dispatch({ type: GET_FAV, payload: id });
+};
+export const getfavres = (id,img,name,cost) => (dispatch) => {
+  let resobj={id,img,name,cost}
+  dispatch({ type: GET_FAV_RES, payload: resobj });
 };

@@ -29,3 +29,7 @@ export const GET_CATEGORY = "GET_CATEGORY"
 export const GET_QUERY = "GET_QUERY"
 
 export const GET_REVIEWS = "GET_REVIEWS"
+
+export const GET_FAV = "GET_FAV"
+
+export const GET_FAV_RES = "GET_FAV_RES"

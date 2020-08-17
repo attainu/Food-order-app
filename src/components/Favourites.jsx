@@ -1,13 +1,35 @@
 import React, { Component } from 'react'
-
+import { connect } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+import { fetchRestaurant } from '../redux/actions/restaurantDetailsAction';
+import Favrest from './Favrest';
+import "../styles/rest.css";
 class Favourites extends Component {
     render() {
+        console.log(this.props.favres)
         return (
-            <div>
-                
+            <center>
+            <div style={{color:'white'}} className="res2">
+                {this.props.favres!==[]?this.props.favres.map(fav=>(<div key={uuidv4()} ><Favrest obj={fav}/></div>)):<h1>NO FAVOURITES ARE ADDED</h1>}
             </div>
+            </center>
         )
     }
 }
 
-export default Favourites
+const mapStateToProps = (storeState) => {
+    return {
+      logdetails: storeState.loginState.user,
+      logstatus: storeState.loginState.status,
+      prod: storeState.registerState.items,
+      city: storeState.restuarantState.place,
+      hotel: storeState.restuarantState.hotel,
+      rest: storeState.restuarantDetailState.hotelDetails,
+      rev: storeState.restuarantDetailState.review,
+      fav: storeState.restuarantDetailState.fav,
+      favres: storeState.restuarantDetailState.favres
+    };
+  };
+  
+
+export default connect(mapStateToProps,{fetchRestaurant})(Favourites)

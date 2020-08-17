@@ -158,6 +158,7 @@ const mapStateToProps = (storeState) => {
     page: storeState.restuarantState.page,
     cat: storeState.restuarantState.category,
     que: storeState.restuarantState.query,
+    fav: storeState.restuarantDetailState.fav
   };
 };
 

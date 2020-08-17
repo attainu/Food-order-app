@@ -118,10 +118,11 @@ body {
 .resbtn{
   background-color: #cb202d;
   color: white;
-  width: 150px;
+  width: 120px;
   height: 30px;
   outline: none;
   border: 0;
   border-radius: 5px;
   cursor: pointer;
+  margin: 2px;
 }
