@@ -3,17 +3,20 @@ import { connect } from "react-redux";
 import {
   fetchRestaurant,
   delfav,
+  delid,
 } from "../redux/actions/restaurantDetailsAction";
 import food from "../Images/Img6.jpg";
 import "../styles/rest.css";
 import { withRouter } from "react-router";
 
 class Favrest extends Component {
+
   handleRes = () => {
     this.props.history.push(`/restuarant/${this.props.obj.id}`);
   };
   handledel = () => {
     this.props.delfav(this.props.obj.id);
+    this.props.delid(this.props.obj.id)
   };
   render() {
     return (
@@ -74,9 +77,10 @@ const mapStateToProps = (storeState) => {
     rest: storeState.restuarantDetailState.hotelDetails,
     rev: storeState.restuarantDetailState.review,
     fav: storeState.restuarantDetailState.fav,
+    favres: storeState.restuarantDetailState.favres,
   };
 };
 
-export default connect(mapStateToProps, { fetchRestaurant, delfav })(
+export default connect(mapStateToProps, { fetchRestaurant, delfav,delid })(
   withRouter(Favrest)
 );

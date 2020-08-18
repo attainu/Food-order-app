@@ -7,8 +7,8 @@ import Favrest from "./Favrest";
 import "../styles/rest.css";
 import NavBar from "./NavBar";
 class Favourites extends Component {
+
   render() {
-    console.log(this.props.favres);
     return this.props.logdetails === null ? (
       <Redirect to="/" />
     ) : (

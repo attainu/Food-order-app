@@ -34,7 +34,7 @@ class Restuarant extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.place !== "") {
+  
       this.props.getcity(this.state.place);
       this.props.getcategory(this.state.category);
       this.props.getquery(this.state.query);
@@ -43,9 +43,9 @@ class Restuarant extends Component {
         0,
         this.state.category,
         this.state.query
-      );
-      this.props.getpage(0);
-    }
+      )
+      this.props.getpage(0)
+    
   
   };
   handlePage = () => {
