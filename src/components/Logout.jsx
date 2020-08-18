@@ -3,11 +3,15 @@ import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
 import { setguser, setuser } from "../redux/actions/loginaction";
+import { fetchRestaurant } from "../redux/actions/restaurantDetailsAction";
+import { setplace } from "../redux/actions/restuarantaction";
 class Logout extends Component {
 
   componentDidMount(){
     this.props.setguser(null,null)
     this.props.setuser(null,null)
+    this.props.fetchRestaurant(null)
+    this.props.setplace(null)
   }
 
   render() {
@@ -32,4 +36,4 @@ const mapStateToProps = (storeState) => {
 
 
 
-export default connect(mapStateToProps,{setguser,setuser})(Logout);
+export default connect(mapStateToProps,{setguser,setuser,fetchRestaurant,setplace})(Logout);

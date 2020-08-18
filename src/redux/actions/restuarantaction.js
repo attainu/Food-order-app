@@ -1,6 +1,8 @@
-import { GET_CITIES, GET_HOTEL, CITY_NAME, GET_PAGE,GET_QUERY,GET_CATEGORY } from "../actionname";
+import { GET_CITIES, GET_HOTEL, CITY_NAME, GET_PAGE,GET_QUERY,GET_CATEGORY,SET_FOOD,GET_FAV,GET_FAV_RES } from "../actionname";
 
 export const setplace = (place, start = 0, id = "",query="") => async (dispatch) => {
+  console.log(place)
+  if(place!==null){
   try {
     console.log(start)
     dispatch({ type: GET_CITIES, payload: null });
@@ -46,6 +48,18 @@ export const setplace = (place, start = 0, id = "",query="") => async (dispatch)
   } catch (err) {
     console.error(err);
   }
+}
+else
+{
+  dispatch({ type: GET_CITIES, payload: null });
+  dispatch({ type: GET_HOTEL, payload: null });
+  dispatch({ type: CITY_NAME, payload: null });
+  dispatch({ type: GET_PAGE, payload: null });
+  dispatch({ type: GET_CATEGORY, payload: null })
+  dispatch({ type: SET_FOOD, payload:null})
+  dispatch({type:GET_FAV_RES,payload:null})
+  dispatch({type:GET_FAV,payload:null})
+}
 };
 
 export const getcity = (city) => (dispatch) => {

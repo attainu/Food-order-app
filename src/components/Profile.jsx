@@ -9,6 +9,7 @@ class Profile extends Component {
     profileImg:
       "https://img.favpng.com/3/7/23/login-google-account-computer-icons-user-png-favpng-ZwgqcU6LVRjJucQ9udYpX00qa.jpg",
   };
+  
   imageHandler = (e) => {
     const reader = new FileReader();
     reader.onload = () => {

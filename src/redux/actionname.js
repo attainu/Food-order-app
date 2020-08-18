@@ -37,3 +37,7 @@ export const GET_FAV_RES = "GET_FAV_RES"
 export const DEL_FAV = "DEL_FAV"
 
 export const DEL_ID = "DEL_ID"
+
+export const EMPTY_FAV = "EMPTY_FAV"
+
+export const EMPTY_FAV_ID = "EMPTY_FAV_ID"

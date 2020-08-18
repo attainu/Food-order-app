@@ -9,6 +9,7 @@ class Restuarantlist extends Component {
   handleRes = () => {
     this.props.history.push(`/restuarant/${this.props.restuarant.restaurant.id}`)
   }
+
   handleFav = () => {
     var check = this.props.fav.includes(this.props.restuarant.restaurant.id)
     if (check === false) {
@@ -16,6 +17,7 @@ class Restuarantlist extends Component {
       this.props.getfavres(this.props.restuarant.restaurant.id, this.props.restuarant.restaurant.featured_image, this.props.restuarant.restaurant.name, this.props.restuarant.restaurant.currency +
         this.props.restuarant.restaurant.average_cost_for_two)
     }
+    window.localStorage.setItem(this.props.logdetails.customer.email, JSON.stringify(this.props.favres));
   }
   render() {
     return (

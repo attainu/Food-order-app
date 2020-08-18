@@ -1,4 +1,4 @@
-import { GET_HOTEL_DETAILS, GET_REVIEWS, GET_FAV, GET_FAV_RES, DEL_FAV,DEL_ID } from "../actionname";
+import { GET_HOTEL_DETAILS, GET_REVIEWS, GET_FAV, GET_FAV_RES, DEL_FAV, DEL_ID } from "../actionname";
 
 const initialState = {
   hotelDetails: null,
@@ -15,17 +15,25 @@ export const restuarantDetailReducer = (state = initialState, action) => {
     case GET_REVIEWS:
       return { ...state, review: payload };
     case GET_FAV:
-      return { ...state, ...state.fav.push(payload) }
+      if(payload!==null){
+      return { ...state, ...state.fav.push(payload) }}
+      state.fav=[]
+      return{...state,...state.fav}
     case GET_FAV_RES:
+      if(payload!=null){
       return { ...state, ...state.favres.push(payload) }
+      }
+      state.favres=[]
+      return{...state,...state.favres}
     case DEL_FAV:
       const filteredPeople = state.favres.filter((item) => item.id !== payload);
-      state.favres=filteredPeople
-      return{...state,...state.favres}
+      state.favres = filteredPeople
+      return { ...state, ...state.favres }
     case DEL_ID:
       const filt = state.favres.filter((item) => item.id !== payload);
-      state.fav=filt
-      return{...state,...state.fav}
+      state.fav = filt
+      return { ...state, ...state.fav }
+   
     default:
       return state;
   }
