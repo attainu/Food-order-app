@@ -12,3 +12,12 @@
 html {
   font-size: 62.5%;
 }
+
+.mediashow{
+  display: block;
+}
+@media only screen and (max-width: 1000px) {
+  .mediashow{
+    display: none;
+  }
+}

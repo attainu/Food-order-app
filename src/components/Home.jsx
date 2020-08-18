@@ -14,11 +14,14 @@ class Home extends Component {
       <div>
         <NavBar />
         <Restaurant />
+        <div className="mediashow">
         {this.props.hotel===null?<Flickety />:""}
+        </div>
       </div>
     );
   }
 }
+
 
 const mapStateToProps = (storeState) => {
   return {

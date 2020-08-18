@@ -9,7 +9,7 @@ const NavBar = () => {
         Tomato
       </p>
       <div className="wrapper">
-        <Link to="/home">Home</Link>
+        <Link to="/home">Resturants</Link>
         <Link to="/recipes">Recipes</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/fav">Favourites</Link>
@@ -18,6 +18,7 @@ const NavBar = () => {
     </div>
     </>
   );
+
 };
 
 export default NavBar;

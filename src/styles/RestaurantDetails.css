@@ -1,19 +1,25 @@
 .pic {
-  position: absolute;
+  max-width: 40%;
+  min-width: 20%;
+  height: auto;
   justify-content: center;
-  top: 350px;
+  margin: 10px;
+  /* top: 350px;
   left: 120px;
-  right: 175px;
+  right: 175px; */
 }
 
 .details {
-  position: absolute;
-  text-align: center;
+ display: flex;
+ flex-direction: column;
   font-size: 24px;
   justify-content: center;
-  top: 350px;
+  min-width: 35%;
+  height: auto;
+  margin: 10px;
+  /* top: 350px;
   left: 750px;
-  right: 175px;
+  right: 175px; */
 }
 
 .fa {
@@ -21,12 +27,12 @@
   font-size: 55px;
 }
 .revs {
-  margin-top: 600px;
+  margin-top: 100px;
   text-align: center;
 }
 .review {
   color: white;
-  margin: 20px;
+  margin: 40px;
   padding: 20px;
 }
 
@@ -52,4 +58,22 @@
 .review span {
   font-size: 25px;
   font-weight: lighter;
+}
+
+.resheading{
+  margin: "10px";
+}
+.revbody{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  flex-wrap: wrap;
+}
+.rh{
+  font-size: 4rem;
+  text-decoration: underline;
+}
+.dm{
+  margin: 10px;
 }

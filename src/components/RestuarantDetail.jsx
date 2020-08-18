@@ -30,73 +30,71 @@ class RestuarantDetail extends Component {
                 margin: "5rem",
               }}
             >
-              <h1
-                style={{
-                  textAlign: "center",
-                  fontSize: "45px",
-                }}
-              >
-                <i>{this.props.rest.name}</i>
-              </h1>
-              <hr />
-              <br />
-              <br />
-              <div
-                className="details"
-                style={{ fontSize: "25px", textAlign: "justify" }}
-              >
-                <b>Address:</b>
-                {this.props.rest.location.address}
-                <br /> <br />
-                <b>Cuisines:</b>
-                {this.props.rest.cuisines}
-                <br /> <br />
-                <b>Cost for Two (approx):</b>
-                {this.props.rest.currency}
-                {this.props.rest.average_cost_for_two}
-                <br /> <br />
-                <b>Timing:</b>
-                {this.props.rest.timings}
-                <br />
-                <br />
-                <b>Contact Details:</b>
-                {this.props.rest.phone_numbers}
-                <br />
-                <br />
-                <b>
-                  Ratings:
-                  <span style={{ fontSize: "25px" }}>
+              <div className="resheading">
+                <h1
+                  style={{
+                    textAlign: "center",
+                    fontSize: "45px",
+                  }}
+                >
+                  <i>{this.props.rest.name}</i>
+                </h1>
+                <hr />
+              </div>
+              <div className="revbody">
+                <div className="pic">
+                  {this.props.rest.featured_image !== "" ? (
+                    <img
+                      src={this.props.rest.featured_image}
+                      alt="no pic"
+                      width="100%"
+                      height="100%"
+                    />
+                  ) : (
+                      <img src={food} alt="no pic" width="250px" height="250px" />
+                    )}
+                </div>
+                <div
+                  className="details"
+                  style={{ fontSize: "25px", textAlign: "justify" }}
+                >
+                  <div className="dm"><b>Address : </b>
+                    {this.props.rest.location.address}</div>
+                  <div className="dm"> <b>Cuisines : </b>
+                    {this.props.rest.cuisines}</div>
+                  <div className="dm"><b>Cost for Two (approx) : </b>
+                    {this.props.rest.currency}
+                    {this.props.rest.average_cost_for_two}</div>
+                  <div className="dm"><b>Timing : </b>
+                    {this.props.rest.timings}
+                  </div>
+                  <div className="dm">
+                    <b>Contact Details : </b>
+                    {this.props.rest.phone_numbers}
+                  </div>
+                  <div className="dm">
+                    <b>
+                      Ratings :
+                    </b>
                     {this.props.rest.user_rating.aggregate_rating}
-                  </span>
-                </b>
-                <br /> <br />
-                <b>Reviews:</b>
-                {this.props.rest.all_reviews_count}
-                <br /> <br /> <br />
-                <br />
+                  </div>
+                  <div className="dm">
+                    <b>Reviews : </b>
+                    {this.props.rest.all_reviews_count}
+                  </div>
+                </div>
               </div>
-              <div className="pic" style={{}}>
-                {this.props.rest.featured_image !== "" ? (
-                  <img
-                    src={this.props.rest.featured_image}
-                    alt="no pic"
-                    width="500px"
-                    height="450px"
-                  />
-                ) : (
-                  <img src={food} alt="no pic" width="250px" height="250px" />
-                )}
-              </div>
-              <br />
-              <br />
             </div>
             <div className="revs">
-              {this.props.rev!==null?this.props.rev.user_reviews.map(re=>(<Review key={uuidv4()} rev={re}/>)):""}
+              <div style={{ color: "white" }}><p className="rh">REVIEWS</p></div>
+              <div>
+                {this.props.rev !== null ? this.props.rev.user_reviews.map(re => (<Review key={uuidv4()} rev={re} />)) : ""}
+              </div>
             </div>
           </>
         ) : (
-          <h1>Loading...</h1>
-        )}
+            <h1>Loading...</h1>
+          )}
       </div>
     );
   }
@@ -115,4 +113,4 @@ const mapStateToProps = (storeState) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchRestaurant,getreviews })(RestuarantDetail);
+export default connect(mapStateToProps, { fetchRestaurant, getreviews })(RestuarantDetail);
