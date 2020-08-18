@@ -6,9 +6,6 @@ import { connect } from "react-redux";
 import { getfav, getfavres } from "../redux/actions/restaurantDetailsAction";
 
 class Restuarantlist extends Component {
-  componentDidUpdate() {
-    console.log("hi")
-  }
   handleRes = () => {
     this.props.history.push(`/restuarant/${this.props.restuarant.restaurant.id}`)
   }
