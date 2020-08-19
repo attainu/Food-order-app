@@ -20,7 +20,7 @@
 }
 .form-box {
   width: 400px;
-  height: 550px;
+  min-height: 550px;
   position: relative;
   margin: auto;
   background: #f8f8f8;
@@ -119,6 +119,9 @@
   font-size: 12px;
   bottom: 68px;
   position: absolute;
+}
+.cbh{
+  font-size: 12px;
 }
 .cbd {
   font-size: 10px;

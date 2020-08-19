@@ -18,14 +18,28 @@ class Login extends Component {
     pcheck: true,
     echeck: true,
     fcheck: true,
+    isChecked: false,
   };
-  
-  componentDidUpdate(prevProps, prevState){
-      if(prevProps.logdetails!==this.props.logdetails ){
-        if(this.props.logstatus===200)
+  componentDidMount() {
+    const rememberMe = localStorage.getItem('rememberMe')
+    if(rememberMe!==null){
+      const checkr = rememberMe==="true"
+    let userp = checkr ? localStorage.getItem('luser') : '';
+    if(userp!=="")
+    {
+      userp = JSON.parse(userp)
+      console.log(userp.lemail,userp.lpassword)
+      this.setState({lemail:userp.lemail})
+      this.setState({lpassword:userp.lpassword})
+    }
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.logdetails !== this.props.logdetails) {
+      if (this.props.logstatus === 200)
         this.props.history.push("/home")
-        console.log(prevProps.logdetails,this.props.logdetails)
-      }
+      console.log(prevProps.logdetails, this.props.logdetails)
+    }
   }
   login = () => {
     let x = document.getElementById("login");
@@ -52,6 +66,9 @@ class Login extends Component {
   handlelsubmit = (e) => {
     e.preventDefault();
     this.props.setuser(this.state.lemail, this.state.lpassword);
+    const luser = { lemail: this.state.lemail, lpassword: this.state.lpassword }
+    localStorage.setItem('rememberMe', this.state.isChecked);
+    localStorage.setItem('luser', this.state.isChecked ? JSON.stringify(luser) : '');
     this.setState({ lemail: "", lpassword: "" });
   };
   handlersubmit = (e) => {
@@ -86,7 +103,7 @@ class Login extends Component {
       );
     }
   };
- 
+
   responseGoogle = (response) => {
     console.log(response);
     this.props.setguser(
@@ -104,8 +121,14 @@ class Login extends Component {
     this.props.setguser(response.name);
     this.props.history.push("/home");
   };
+  toggleChange = () => {
+    this.setState({
+      isChecked: !this.state.isChecked,
+    });
+  }
 
   render() {
+    console.log(this.state.isChecked)
     return (
       <div>
         <div className="hero">
@@ -166,12 +189,12 @@ class Login extends Component {
                       </h4>
                     </>
                   ) : (
-                    <h4 style={{ color: "red" }}>Sorry Wrong Details</h4>
-                  )}
+                      <h4 style={{ color: "red" }}>Sorry Wrong Details</h4>
+                    )}
                 </div>
               ) : (
-                ""
-              )}
+                  ""
+                )}
               <input
                 type="email"
                 className="input-field"
@@ -190,6 +213,9 @@ class Login extends Component {
                 required
                 value={this.state.lpassword}
               />
+              <input type="checkbox" className="check-box" checked={this.state.isChecked}
+                onChange={this.toggleChange} />
+              <span className="cbh">Remember Me</span>
               <button type="submit" className="submit-btn1">
                 Login
               </button>
@@ -202,10 +228,10 @@ class Login extends Component {
               {this.state.fcheck ? (
                 ""
               ) : (
-                <span className="cbd" style={{ color: "red" }}>
-                  Please Enter all fields to register
-                </span>
-              )}
+                  <span className="cbd" style={{ color: "red" }}>
+                    Please Enter all fields to register
+                  </span>
+                )}
               {this.props.prod !== null ? (
                 this.props.prod.status === 200 ? (
                   <div>
@@ -213,15 +239,15 @@ class Login extends Component {
                     <h4 style={{ color: "green" }}>Succesfully Registered</h4>
                   </div>
                 ) : (
-                  <div>
-                    <h4 style={{ color: "red" }}>
-                      You may entered exsiting email please check and type again
+                    <div>
+                      <h4 style={{ color: "red" }}>
+                        You may entered exsiting email please check and type again
                     </h4>
-                  </div>
-                )
+                    </div>
+                  )
               ) : (
-                ""
-              )}
+                  ""
+                )}
               <input
                 type="text"
                 className="input-field"
@@ -235,10 +261,10 @@ class Login extends Component {
               {this.state.echeck ? (
                 ""
               ) : (
-                <span className="cbd" style={{ color: "red" }}>
-                  Please Enter Correct Email
-                </span>
-              )}
+                  <span className="cbd" style={{ color: "red" }}>
+                    Please Enter Correct Email
+                  </span>
+                )}
               <input
                 type="email"
                 className="input-field"
@@ -260,10 +286,10 @@ class Login extends Component {
               {this.state.pcheck ? (
                 ""
               ) : (
-                <span className="cbd" style={{ color: "red" }}>
-                  Password is Not Matching
-                </span>
-              )}
+                  <span className="cbd" style={{ color: "red" }}>
+                    Password is Not Matching
+                  </span>
+                )}
               <input
                 type="password"
                 className="input-field"
